@@ -61,13 +61,6 @@ class HU03PromedioYEstatus(unittest.TestCase):
     def test_estatus_reprobado(self):
         self.assertEqual(obtener_estatus(5.9), "REPROBADO")
 
-# HU-05 Ver la lista del grupo
-def lista_ordenada(alumnos):
-    return sorted(alumnos, key=str.lower)
-
-
-def linea_lista(numero, nombre):
-    return str(numero) + ". " + nombre
 
 class HU04ReporteDelGrupo(unittest.TestCase):
 
@@ -94,8 +87,6 @@ class HU05ListaDelGrupo(unittest.TestCase):
 
     def test_linea_de_la_lista(self):
         self.assertEqual(linea_lista(1, "Ana López"), "1. Ana López")
-
-
 
 
 if __name__ == "__main__":
