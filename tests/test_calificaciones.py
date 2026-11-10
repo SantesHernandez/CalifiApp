@@ -61,6 +61,13 @@ class HU03PromedioYEstatus(unittest.TestCase):
     def test_estatus_reprobado(self):
         self.assertEqual(obtener_estatus(5.9), "REPROBADO")
 
+# HU-05 Ver la lista del grupo
+def lista_ordenada(alumnos):
+    return sorted(alumnos, key=str.lower)
+
+
+def linea_lista(numero, nombre):
+    return str(numero) + ". " + nombre
 
 class HU04ReporteDelGrupo(unittest.TestCase):
 
@@ -72,6 +79,23 @@ class HU04ReporteDelGrupo(unittest.TestCase):
 
     def test_promedio_grupal_sin_alumnos(self):
         self.assertEqual(promedio_grupal([]), 0.0)
+
+
+class HU05ListaDelGrupo(unittest.TestCase):
+
+    def test_lista_en_orden_alfabetico(self):
+        alumnos = ["Luis Pérez", "ana López", "Carla Ruiz"]
+        self.assertEqual(lista_ordenada(alumnos), ["ana López", "Carla Ruiz", "Luis Pérez"])
+
+    def test_lista_original_no_cambia(self):
+        alumnos = ["Luis Pérez", "Ana López"]
+        lista_ordenada(alumnos)
+        self.assertEqual(alumnos, ["Luis Pérez", "Ana López"])
+
+    def test_linea_de_la_lista(self):
+        self.assertEqual(linea_lista(1, "Ana López"), "1. Ana López")
+
+
 
 
 if __name__ == "__main__":
